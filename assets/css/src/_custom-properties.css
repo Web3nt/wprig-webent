@@ -6,13 +6,19 @@
  **/
 
 :root {
-	--global-font-color: #333;
-	--global-font-family: "Crimson Text", serif;
+	--global-font-color: #000;
+	--global-font-family: "Open Sans", serif;
 	--global-font-size: 20;
-	--global-font-line-height: 1.4;
-	--highlight-font-family: "Roboto Condensed", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--global-font-line-height: 1.35em;
+	--site-header-font-family: "Permanent Marker", "Merienda", "Helvetica Neue", "Arial Narrow", sans-serif;
+	--highlight-font-family: "Merienda", "Helvetica Neue", "Arial Narrow", sans-serif;
 	--content-width: 45rem;
 	--dropdown-symbol-width: 0.7em;
+
+	/* Padding Wrappers */
+	--mobile-wrap-padding: 1.75em;
+	--desktop-wrap-padding: 3.5em;
+	--max-wrap-padding: calc(100% - (var(--content-width) / 2));
 
 	/* Custom editor colors */
 	--color-theme-primary: #e36d60;

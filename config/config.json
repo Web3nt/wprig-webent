@@ -9,7 +9,7 @@
       "live": true,
       "proxyURL": "wprig.local",
       "bypassPort": "8181",
-      "https": true
+      "https": false
     },
     "styles": {
       "stage": 3
