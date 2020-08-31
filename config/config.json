@@ -1,0 +1,23 @@
+{
+  "theme": {
+    "slug": "webent",
+    "name": "Webent",
+    "author": "Stephen Osborn"
+  },
+  "dev": {
+    "browserSync": {
+      "live": true,
+      "proxyURL": "wprig.local",
+      "bypassPort": "8181",
+      "https": true
+    },
+    "styles": {
+      "stage": 3
+    },
+    "debug": {
+      "styles": false,
+      "scripts": false,
+      "phpcs": true
+    }
+  }
+}
