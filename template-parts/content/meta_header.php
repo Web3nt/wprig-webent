@@ -10,7 +10,7 @@ namespace WP_Rig\WP_Rig;
 if ( is_404() ) {
 	?>
 	<header class="page-header">
-		<?php get_template_part( 'template-parts/header/custom_header' ); ?>
+		<?php get_template_part( 'template-parts/header/custom_header', get_post_type() ); ?>
 		<h1 class="page-title">
 			<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wp-rig' ); ?>
 		</h1>

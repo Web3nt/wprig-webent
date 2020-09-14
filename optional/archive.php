@@ -14,11 +14,11 @@ get_header();
 wp_rig()->print_styles( 'wp-rig-content' );
 
 ?>
-	<main id="primary" class="site-main">
+	<main id="primary" class="main-content">
 		<?php
 		if ( have_posts() ) {
 
-			get_template_part( 'template-parts/content/page_header' );
+			get_template_part( 'template-parts/content/meta_header' );
 
 			while ( have_posts() ) {
 				the_post();

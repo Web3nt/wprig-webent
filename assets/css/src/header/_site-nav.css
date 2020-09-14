@@ -1,0 +1,250 @@
+
+/*--------------------------------------------------------------
+## Basic navigation menus - handles submenu and small screen toggle
+--------------------------------------------------------------*/
+.nav--toggle-small {
+
+	& .menu-toggle {
+		display: block;
+		position: absolute;
+		bottom: calc(100% + 25px);
+		padding: 35px;
+		font-family: Arial;
+		font-size: 0;
+		color:  transparent;
+		border: none;
+		border-radius: 0;
+		background-color: transparent;
+		background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' data-prefix='fas' data-icon='hamburger' class='svg-inline--fa fa-hamburger fa-w-16' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M464 256H48a48 48 0 000 96h416a48 48 0 000-96zm16 128H32a16 16 0 00-16 16v16a64 64 0 0064 64h352a64 64 0 0064-64v-16a16 16 0 00-16-16zM58.64 224h394.72c34.57 0 54.62-43.9 34.82-75.88C448 83.2 359.55 32.1 256 32c-103.54.1-192 51.2-232.18 116.11C4 180.09 24.07 224 58.64 224zM384 112a16 16 0 11-16 16 16 16 0 0116-16zM256 80a16 16 0 11-16 16 16 16 0 0116-16zm-128 32a16 16 0 11-16 16 16 16 0 0116-16z'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 80%;
+
+		@media (--query-tablet) {
+			display: none;
+		}
+	}
+
+	& .menu {
+		display: none;
+		@media (--query-tablet) {
+			display: block;
+		}
+	}
+
+
+
+	@media (--query-mobile) {
+		&.nav--toggled-on .menu {
+			display: block;
+		}
+	}
+
+
+}
+
+.nav--toggle-sub {
+
+	& .dropdown,
+	& .dropdown-toggle {
+		display: none;
+
+		@media (--query-tablet) {
+			display: block;
+			background: transparent;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			width: var(--dropdown-symbol-width);
+			height: var(--dropdown-symbol-width);
+			font-size: inherit;
+			line-height: inherit;
+			margin: 0;
+			padding: 0;
+			border: none;
+			border-radius: 0;
+			transform: translateY(-50%);
+			overflow: visible;
+		}
+	}
+
+	& ul ul {
+		@media (--query-tablet) {
+			display: none;
+			position: absolute;
+			top: 100%;
+			flex-direction: column;
+			background: #fff;
+			margin-left: 0;
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			z-index: 1;
+		}
+
+		& .dropdown,
+		& .dropdown-toggle {
+			@media (--query-tablet) {
+				top: 40%;
+				right: 0.2em;
+			}
+		}
+
+		& .dropdown-symbol {
+			@media (--query-tablet) {
+				transform: rotate(-45deg);
+			}
+		}
+
+	}
+
+	& .dropdown-symbol {
+		@media (--query-tablet) {
+			display: block;
+			background: transparent;
+			position: absolute;
+			right: 20%;
+			top: 35%;
+			width: 60%;
+			height: 60%;
+			border: solid #000;
+			border-width: 0 2px 2px 0;
+			transform: translateY(-50%) rotate(45deg);
+		}
+	}
+
+	& .dropdown-toggle:hover,
+	& .menu-item--has-toggle:hover .dropdown-toggle {
+		@media (--query-tablet) {
+			pointer-events: none;
+		}
+	}
+
+	/* Need menu-item-has-children for non-JS */
+	& li.menu-item-has-children,
+	& li.menu-item--has-toggle {
+		@media (--query-tablet) {
+			position: relative;
+			padding-right: var(--dropdown-symbol-width);
+		}
+	}
+
+	/*
+	 * If the dropdown toggle is active with JS, then
+	 * we'll take care of showing the submenu with JS.
+	 */
+	 & li:hover > ul,
+	 & li.menu-item--toggled-on > ul,
+	 & li:not(.menu-item--has-toggle):focus > ul {
+		@media (--query-tablet) {
+			display: block;
+		}
+	 }
+
+	 /*
+	 * "focus-within" is an alternative to focus class for
+	 * supporting browsers (all but IE/Edge) for no-JS context
+	 * (e.g. AMP) See https://caniuse.com/#feat=css-focus-within
+	 *
+	 * This selector needs to stay separated, otherwise submenus
+	 * will not be displayed with IE/Edge.
+	 */
+	& li:not(.menu-item--has-toggle):focus-within > ul {
+		@media (--query-tablet) {
+			display: block;
+		}
+	}
+}
+
+
+
+/*--------------------------------------------------------------
+## Main navigation menu
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: var(--highlight-font-family);
+	font-stretch: condensed;
+
+	@media (--query-tablet) {
+		width: initial;
+		margin-bottom: 15px;
+	}
+
+	& a {
+		display: block;
+		width: 100%;
+		padding: 0.5em 1em 0.5em 0;
+		text-decoration: none;
+		color: #000;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	& ul {
+		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		& li {
+			@media (--query-tablet) {
+				margin: 0 0 0 0.5em;
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+
+			& a {
+				@media (--query-tablet) {
+					padding: 0.4em 0.5em;
+				}
+			}
+		}
+
+		& ul {
+
+			& li {
+				padding-left: 1em;
+				@media (--query-tablet) {
+					padding-left: 0;
+					margin-left: 0;
+				}
+
+				& a {
+					@media (--query-tablet) {
+						width: 218px;
+						background: none;
+					}
+				}
+			}
+
+			a {
+				@media (--query-tablet) {
+					width: 200px;
+				}
+			}
+
+			ul {
+				@media (--query-tablet) {
+					top: 0;
+					left: 100%;
+					min-height: 100%;
+				}
+			}
+		}
+	}
+	& .menu {
+		@media (--query-tablet) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+}

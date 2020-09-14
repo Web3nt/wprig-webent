@@ -2,7 +2,7 @@
  * Custom styles for the front-page.php template.
  */
 
-@media (--sidebar-query) {
+@media (--query-desktop) {
 
 	.site {
 		margin: 0 1em;
@@ -10,7 +10,7 @@
 		grid-template-columns: 1fr;
 	}
 
-	.site-main {
+	.main-content {
 		margin: 2rem 1rem 0;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
@@ -45,7 +45,7 @@
 		border-bottom: none;
 	}
 
-	.site-main .posts-navigation {
+	.main-content .posts-navigation {
 		width: 100%;
 		margin-bottom: 0;
 		padding: 2rem 0 0;

@@ -58,7 +58,7 @@ blockquote {
 	margin-left: 1.5rem;
 }
 
-@media (--content-query) {
+@media (--query-desktop) {
 
 	.entry-content > blockquote {
 		margin-left: auto;

@@ -43,7 +43,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function initialize() {
 		add_action( 'widgets_init', [ $this, 'action_register_sidebars' ] );
-		add_filter( 'body_class', [ $this, 'filter_body_classes' ] );
+		// add_filter( 'body_class', [ $this, 'filter_body_classes' ] );
 	}
 
 	/**
@@ -83,17 +83,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @param array $classes Classes for the body element.
 	 * @return array Filtered body classes.
 	 */
-	public function filter_body_classes( array $classes ) : array {
-		if ( $this->is_primary_sidebar_active() ) {
-			global $template;
+	// public function filter_body_classes( array $classes ) : array {
+	// 	if ( $this->is_primary_sidebar_active() ) {
+	// 		global $template;
 
-			if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
-				$classes[] = 'has-sidebar';
-			}
-		}
+	// 		if ( ! in_array( basename( $template ), [ 'front-page.php', '404.php', '500.php', 'offline.php' ] ) ) {
+	// 			$classes[] = 'has-sidebar';
+	// 		}
+	// 	}
 
-		return $classes;
-	}
+	// 	return $classes;
+	// }
 
 	/**
 	 * Checks whether the primary sidebar is active.

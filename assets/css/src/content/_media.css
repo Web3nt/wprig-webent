@@ -1,4 +1,4 @@
-@import "_custom-properties.css";
+@import "../global/_custom-properties.css";
 
 /*--------------------------------------------------------------
 # Media
@@ -41,7 +41,7 @@ object {
 	margin: 0.8075em 0;
 }
 
-@media (--content-query) {
+@media (--query-desktop) {
 
 	.wp-caption.alignright,
 	.wp-block-image.alignright {

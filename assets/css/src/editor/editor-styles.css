@@ -19,12 +19,12 @@
 # Imports
 --------------------------------------------------------------*/
 
-@import "../_custom-properties.css";
-@import "../_typography.css";
-@import "../_elements.css";
-@import "../_links.css";
-@import "../_media.css";
-@import "../_blocks.css";
+@import "../global/_custom-properties.css";
+@import "../global/_typography.css";
+@import "../global/_elements.css";
+@import "../global/_links.css";
+@import "../content/_media.css";
+@import "../content/_blocks.css";
 
 /*--------------------------------------------------------------
 # Adjustments for the editor

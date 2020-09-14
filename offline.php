@@ -17,7 +17,7 @@ get_header();
 wp_rig()->print_styles( 'wp-rig-content' );
 
 ?>
-	<main id="primary" class="site-main">
+	<main id="primary" class="main-content">
 		<?php get_template_part( 'template-parts/content/error', 'offline' ); ?>
 	</main><!-- #primary -->
 <?php

@@ -1,0 +1,45 @@
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+.site {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"header"
+		"content"
+		"sidebar"
+		"footer";
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+@media (--query-tablet) {
+
+	.has-sidebar .site {
+		grid-template-columns: 3fr 1fr;
+		grid-gap: 2rem;
+		justify-content: center;
+		grid-template-areas:
+		"header header header header"
+		"content content content sidebar"
+		"footer footer footer footer";
+	}
+
+}
+
+.site-header {
+	grid-area: header;
+}
+
+.main-content {
+	grid-area: content;
+}
+
+.primary-sidebar {
+	grid-area: sidebar;
+}
+
+.site-footer {
+	grid-area: footer;
+}

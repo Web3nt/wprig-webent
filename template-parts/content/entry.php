@@ -9,7 +9,7 @@ namespace WP_Rig\WP_Rig;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
+<section id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
 	<?php
 	get_template_part( 'template-parts/content/entry_header', get_post_type() );
 
@@ -21,7 +21,7 @@ namespace WP_Rig\WP_Rig;
 
 	get_template_part( 'template-parts/content/entry_footer', get_post_type() );
 	?>
-</article><!-- #post-<?php the_ID(); ?> -->
+</section><!-- #post-<?php the_ID(); ?> -->
 
 <?php
 if ( is_singular( get_post_type() ) ) {

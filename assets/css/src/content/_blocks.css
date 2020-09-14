@@ -1,4 +1,4 @@
-@import "_custom-properties.css";
+@import "../global/_custom-properties.css";
 
 /*--------------------------------------------------------------
 ## Blocks
@@ -43,7 +43,7 @@
 	margin-left: 1.5rem;
 }
 
-@media (--content-query) {
+@media (--query-desktop) {
 
 	.entry-content > .wp-block-quote,
 	.entry-content > .wp-block-quote.is-style-large {
