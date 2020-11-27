@@ -12,8 +12,8 @@ namespace WP_Rig\WP_Rig;
 <?php get_template_part( 'template-parts/header/page_header', get_post_type() ); ?>
 
 <section id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
-
-	<?php get_template_part( 'template-parts/content/entry_acf', get_post_type() ); ?>
+	test
+	<?php get_template_part( 'template-parts/content/entry_content', get_post_type() ); ?>
 
 </section><!-- #post-<?php the_ID(); ?> -->
 

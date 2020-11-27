@@ -64,3 +64,56 @@ require get_template_directory() . '/inc/functions.php';
 
 // Initialize the theme.
 call_user_func( 'WP_Rig\WP_Rig\wp_rig' );
+
+
+// ACF Functions
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Header Settings',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'theme-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-settings',
+	));
+
+}
+
+
+function hide_gutenberg_editor($acfKey) {
+	?>
+	<script type="text/javascript">
+		( function($){
+
+			acf.addAction( 'load', function(){
+
+				var field = acf.getField( 'field_5f73882e62768' ); // the ACF field key
+
+				if( field.$el.length > 0 ){
+
+					$( '.block-editor-block-list__layout' ).css( 'display', 'none' );
+					$( '.block-editor-writing-flow__click-redirect' ).css( 'display', 'none' );
+					$( '.edit-post-visual-editor' ).css({ 'flex-basis': '0', 'flex': 'none' });
+					$( '.edit-post-header-toolbar' ).css( 'visibility', 'hidden' );
+				}
+			});
+
+		})( jQuery );
+	</script>
+	<?php
+}
+
+add_action( 'acf/input/admin_footer', 'hide_gutenberg_editor' );

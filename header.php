@@ -33,6 +33,28 @@ namespace WP_Rig\WP_Rig;
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="canvas" class="site">
+	<style>
+		<?php $themeBG = get_field('site_background', 'option'); ?>
+		#canvas {
+			<?php if($themeBG['background_color']) : ?>
+				background-color: <?php echo $themeBG['background_color']; ?>;
+			<?php endif; ?>
+			<?php if($themeBG['background_image']) : ?>
+				background-image: url("<?php echo $themeBG['background_image']; ?> ");
+			<?php endif; ?>
+			<?php if($themeBG['background_repeat']) : ?>
+				background-repeat: <?php echo $themeBG['background_repeat']; ?>;
+			<?php endif; ?>
+			<?php if($themeBG['background_size'] && $themeBG['background_size'] != 'value') : ?>
+				background-size: <?php echo $themeBG['background_size']; ?>;
+				<?php elseif($themeBG['background_size'] == 'value') : ?>
+					background-size: <?php echo $themeBG['background_size_value']; ?>;
+			<?php endif; ?>;
+			<?php if($themeBG['background_position']) : ?>
+				background-position: <?php echo $themeBG['background_position']; ?>;
+			<?php endif; ?>
+		}
+	</style>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wp-rig' ); ?></a>
 
 	<header id="masthead" class="site-header">
